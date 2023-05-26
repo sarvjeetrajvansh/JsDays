@@ -31,4 +31,54 @@ console.log(typeof typeof f);
 console.log(1 == 1);
 console.log(1 === "1");
 //Coersion or type conversion
-//
+
+console.log(+"1");
+console.log(+"Hello");
+
+var a = +"hello";
+var b = +"hello world";
+
+console.log(a, b);
+
+console.log(a === b);
+// NaN is not equal to iself
+
+console.log(typeof NaN);
+
+// 3+2+"9" = 5 + "9" = 59
+// 3+"3" = 33
+// string + string = string
+// string + number = number
+
+//  == , <=,>= , -, * , / all do
+// numeric conversion , but + does string
+// converison
+// + as Unary operator is numeric conversion
+// +"Hello" + "World" = NaNWorld
+// -'34' + 10 = -24
+//Object data Types :
+
+var a = [1, 3, 2, "Hello World"];
+console.log(a[3]);
+
+// Assigment by value
+var a = [1, 3, 4, 6];
+// Assignment by reference
+var b = a;
+a.length = 0;
+// a got new empty array location , but b is
+// still pointing to that old location
+console.log(a, b);
+
+//  primtive are by value & obje are by ref
+
+// Garbage collection in Js means, memory not reachable
+//  is garbage collected.
+
+//  To make an array empty set its length to zero.
+// a.length = 0
+
+// null==undefined -> true & null === undef -> false
+
+// var b = new Array(0); // conctructor
+// var a = [] internally it's newArray(0);
