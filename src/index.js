@@ -1,7 +1,5 @@
 import "./styles.css";
 
-import "./styles.css";
-
 var a = "abc";
 var b = 1;
 var c = true;
@@ -82,3 +80,123 @@ console.log(a, b);
 
 // var b = new Array(0); // conctructor
 // var a = [] internally it's newArray(0);
+// === DAY 2 ====
+
+// Objects
+
+var obj = {
+  a: "10",
+  b: "2"
+  // "my-key" : "10",
+};
+
+// var obj = new Object();
+
+console.log(obj.a);
+console.log(obj["b"]);
+
+// console.log(obj["my-key"]);
+var dog = {
+  name: "bully",
+  breed: "bulldog",
+  bark: function () {
+    console.log("woof woof");
+  },
+  // Nesting new object inside object
+  owner: {
+    name: "Monika",
+    profession: "Dog Instructor"
+  }
+};
+
+console.log(dog.name);
+console.log(dog.bark());
+// Nesting of object is possible
+console.log(dog.owner.name);
+
+// var a = {},
+//     b = {key : 'b'},
+//     c = {key : 'c'};
+
+var a = {};
+var b = { key: "b" };
+var c = { key: "c" };
+
+a[b] = 123;
+//a['[Object Object]'] = 123
+a[c] = 456;
+// a ['[Object Object]'] = 456
+
+console.log(a[b]);
+
+console.log(b.toString());
+
+// Functions
+
+//  function declaration
+// function a(){
+//   console.log("a");
+
+// }
+// function expression
+
+var func = function () {
+  console.log("func");
+};
+
+//  In Js You can return a function
+// you can even pass a function as parameter
+
+function abc() {
+  return function () {
+    console.log("return func");
+  };
+}
+
+var x = abc();
+
+x();
+
+function def(fn, e) {
+  fn(e);
+  // call back
+}
+
+def(function (e) {
+  console.log("passed fucntion", e);
+}, 2);
+
+function zxy() {
+  console.log(arguments.length);
+  var arr = [1, 2, 3];
+  arr.push(4);
+  console.log(arr);
+}
+
+zxy(1, 2, 3, 4, 5, 6, "xyz");
+
+var passA = 10;
+
+function hst() {
+  var passA = 0;
+  console.log(passA);
+  passA = 2;
+
+  //  javascript push all var decalaration to top.
+}
+
+hst();
+
+// var a = [];
+// var a = new Array(0);
+// Create contructor fun/class as capailtal letter first.
+function Dog(name, breed) {
+  this.name = name;
+  this.breed = breed;
+}
+var d1 = new Dog("bully", "bulldog");
+
+console.log(d1);
+
+// Three ways to create an object
+// 1) Dynamic a=[1,2] 2) new Constructor a=newArrya(1,2) 3) custom Constructor
