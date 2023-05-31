@@ -200,3 +200,104 @@ console.log(d1);
 
 // Three ways to create an object
 // 1) Dynamic a=[1,2] 2) new Constructor a=newArrya(1,2) 3) custom Constructor
+
+// Day 3 Windown is global object
+
+var pokemon = {
+  firstname: "Pika",
+  lastname: "Chu",
+  getPokeName: function () {
+    var fullname = this.firstname + " " + this.lastname;
+    return fullname;
+  }
+};
+
+console.log(window);
+
+var pokemonName = function (snack, hobby) {
+  console.log(this.getPokeName() + " loves " + snack + " and " + hobby);
+};
+
+pokemonName.call(pokemon, "Sushi", "Algorithms");
+pokemonName.apply(pokemon, ["Sushi", "Algorithms"]);
+var logPokemon = pokemonName.bind(pokemon);
+
+logPokemon("Sushi", "algos");
+logPokemon("Sushi1", "algo1");
+
+logPokemon();
+// Both call have same output just syntax diff
+
+// call , call(instance, param1, param2)
+// we can use call function to use any function context
+//  apply  , apply(instance , [parama1,param2])
+//  Bind , bind(instance,params)
+
+console.log(Math.max.apply(undefined, [1, 23, 4, 56, 9]));
+console.log(Math.max(1, 23, 4, 56, 9));
+//  Slice () , slice (start), slice(start,end)
+
+var arr = [1, 2, 3, 4, 5];
+console.log(arr.slice(2.4));
+function a2z() {
+  var a;
+  a = Array.prototype.slice.call(arguments);
+  console.log(a);
+}
+a2z(1, 2, 4, 5);
+
+//  Proto and prototype
+
+var a = {
+  x: 10,
+  l: 30,
+  calculate: function (z) {
+    return this.x + this.y + z;
+  }
+};
+var b = {
+  y: 20,
+  __proto__: a
+};
+
+var c = {
+  d: 20,
+  __proto__: b
+};
+
+console.log(c.x);
+// prototype chaining, multilevel inheritance
+console.log(b.x, b.l, c.l);
+
+// protoype is an object available in a function , use for inheritence,
+// also known as prototypical inheritence.
+
+//a.b
+// prototype.slice
+// prototype.push
+
+// console.log(Array.prototype)
+
+function Foo(y) {
+  this.y = y;
+  console.log(this.y);
+}
+
+// every function will have prototype
+// every object will have proto
+
+Foo.prototype.x = 20;
+Foo.prototype.calculate = function (z) {
+  return this.x + this.y + z;
+};
+
+var b = new Foo(10);
+// b would have proto
+b.calculate(30);
+
+var c = new Foo(40);
+
+// proto
+//proto is used to point one object to another object
+// b would be able to access all properties of a
+// prototype is an object which in available in
